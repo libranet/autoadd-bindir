@@ -69,13 +69,9 @@ def reload1(module_name = "auto_activate"):
   importlib.reload(module)
 
 
-reload1()
+reload1(module_name = "auto_activate")
+# reload1(module_name = "auto_activate.entrypoint")
 
 @pytest.fixture
 def bin_dir():
     return pl.Path(sys.prefix) / "bin"
-
-@pytest.fixture
-def reload():
-  # reload the module to fix coverage report
-  reload1()

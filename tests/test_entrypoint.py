@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=import-outside-toplevel
 # pylint: disable=missing-function-docstring
-"""Testing of module auto_activate.autoread."""
+"""Testing of module auto_activate."""
 import os
 
 
 
-def test_auto_activate(reload, bin_dir) -> None:
-    from auto_activate.entrypoint import auto_activate
+def test_auto_activate(bin_dir) -> None:
+    from auto_activate import entrypoint
 
     # initially already set via sitecustomize
     paths = os.getenv("PATH").split(os.pathsep)
@@ -20,6 +20,6 @@ def test_auto_activate(reload, bin_dir) -> None:
     paths = os.getenv("PATH").split(os.pathsep)
     assert paths[0] != str(bin_dir)
 
-    auto_activate()
+    entrypoint()
     paths = os.getenv("PATH").split(os.pathsep)
     assert paths[0] == str(bin_dir)
