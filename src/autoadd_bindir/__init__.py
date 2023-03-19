@@ -9,15 +9,23 @@ import sys
 def entrypoint() -> None:
     """Add python-bindir to PATH."""
 
-    bin_dir = pl.Path(sys.prefix) / "bin"
-    # bin_dir = pl.Path(sys.base_prefix) / "bin"
+    bin_dir = get_bindir()
 
     if not bin_dir.exists():  # pragma: no cover
         return
 
     paths = os.environ["PATH"].split(os.pathsep)
-    paths.insert(0, str(bin_dir))  # prepend our dir
+
+    if paths[0] != str(bin_dir):
+        # prepend our dir
+        paths.insert(0, str(bin_dir))
     os.environ["PATH"] = os.pathsep.join(paths)
+
+
+def get_bindir():
+    """Return the bindit form the isolated virtual environment."""
+    bin_dir = pl.Path(sys.prefix) / "bin"
+    return bin_dir
 
 
 def cancel() -> None:  # pragma: no cover

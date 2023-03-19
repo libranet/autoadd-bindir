@@ -24,26 +24,26 @@ Install via pip:
 
 .. code-block:: python
 
-        > pip install auto_activate
+        > pip install autoadd_bindir
 
 Or add to your poetry-based project:
 
 .. code-block:: python
 
-        > poetry add auto_activate
+        > poetry add autoadd_bindir
 
 
 Registered sitecustomize-entrypoint
 ------------------------------------
 
-The ``auto_activate``-function is registered 
+The ``autoadd_bindir``-function is registered
 as a ``sitecustomize``-entrypoint in pyproject.toml_:
 
 .. code-block:: python
 
     [tool.poetry.plugins]
     [tool.poetry.plugins."sitecustomize"]
-    auto_activate = "auto_activate.entrypoint:auto_activate"
+    autoadd_bindir = "autoadd_bindir.entrypoint:autoadd_bindir"
 
 This entrypoint will be executed in every python-process.
 
