@@ -70,16 +70,16 @@ mypy_path = ["src"]
 
 
 [tool.poetry]
-name = "auto_activate"
+name = "autoadd_bindir"
 version = "1.1.1a0" # version managed by poetry-dynamic-versioning
 description = "Automatacilly add bin-dir to PATH for every process in your virtualenv."
 readme = "docs/readme.rst"
 authors = ["Wouter Vanden Hove <wouter@libranet.eu>"]
 license = "MIT"
 maintainers = ["Wouter Vanden Hove <wouter@libranet.eu>"]
-homepage = "https://github.com/libranet/auto_activate"
-repository = "https://github.com/libranet/auto_activate"
-documentation = "https://github.com/libranet/auto_activate"
+homepage = "https://github.com/libranet/autoadd_bindir"
+repository = "https://github.com/libranet/autoadd_bindir"
+documentation = "https://github.com/libranet/autoadd_bindir"
 keywords = ["entrypoints", "sitecustomize"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -96,7 +96,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 
-packages = [{ include = "auto_activate", from = "src" }]
+packages = [{ include = "autoadd_bindir", from = "src" }]
 
 
 [tool.poetry.dependencies]
@@ -105,18 +105,20 @@ python = ">=3.9.0,<4.0"
 sitecustomize-entrypoints = ">=0.1.0"
 
 [tool.poetry.group.dev.dependencies]
+bandit = { extras = ["toml"], version = ">=1.7.4" }
 black = { version = ">=22.1.0", allow-prereleases = true }
 flake8 = ">=4.0.1"
 flake8-bugbear = ">=23.2.13"
 flake8-pyproject = ">=1.2.2"
 isort = ">=5.10.1"
-lxml = ">=4.9.2"  # mypy coverage-report
-mypy = ">=0.931"
 pre-commit = ">=2.14.1"
 pre-commit-hooks = ">=4.1.0"
 pylint = ">=2.12.2"
-pyroma = ">=4.2"
 ruff = ">=0.0.254"
+
+[tool.poetry.group.dist.dependencies]
+pyroma = ">=4.2"
+twine = ">=4.0.2"
 
 [tool.poetry.group.docs.dependencies]
 # poetry install
@@ -127,12 +129,23 @@ Sphinx = ">=4.4.0"
 sphinx-autoapi = ">=1.8.4"
 sphinx-rtd-theme = ">=1.0.0"
 
+[tool.poetry.group.ipython.dependencies]
+ipdb = ">=0.13.9"
+
+[tool.poetry.group.profiling.dependencies]
+tuna = ">=0.5.11"
+
 [tool.poetry.group.tests.dependencies]
 pytest = ">=7.0.1"
 pytest-cov = ">=3.0.0"
 
+[tool.poetry.group.typing.dependencies]
+lxml = ">=4.9.2" # mypy coverage-report
+mypy = ">=0.931"
+
+
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/Libranet/auto_activate/issues"
+"Bug Tracker" = "https://github.com/Libranet/autoadd_bindir/issues"
 
 
 [tool.poetry2conda]
@@ -148,7 +161,11 @@ vcs = "git"
 style = "semver"
 
 [tool.poetry-dynamic-versioning.substitution]
-files = ["src/auto_activate/__init__.py", "src/*/__version__.py", "docs/changes.rst"]
+files = [
+    "src/autoadd_bindir/__init__.py",
+    "src/*/__version__.py",
+    "docs/changes.rst",
+]
 
 
 [tool.poetry.plugins] # Optional super table
@@ -156,12 +173,12 @@ files = ["src/auto_activate/__init__.py", "src/*/__version__.py", "docs/changes.
 [tool.poetry.plugins."sitecustomize"]
 # https://python-poetry.org/docs/pyproject/#plugins
 # https://github.com/Darsstar/sitecustomize-entrypoints/blob/main/src/sitecustomize/__init__.py
-auto_activate = "auto_activate:entrypoint"
+autoadd_bindir = "autoadd_bindir:entrypoint"
 
 [tool.poetry-release]
 release-replacements = [
-    { file="docs/changes.rst", pattern="TBD \\(Unreleased\\)", replace="{version} \\({date}\\)" },
-    { file="src/auto_activate/__init__.py", pattern='__version__ = "{version}"', replace='__version__ = "{next_version}"'},
+    { file = "docs/changes.rst", pattern = "TBD \\(Unreleased\\)", replace = "{version} \\({date}\\)" },
+    { file = "src/autoadd_bindir/__init__.py", pattern = '__version__ = "{version}"', replace = '__version__ = "{next_version}"' },
     # { file="CHANGELOG.md", pattern="\\(https://semver.org/spec/v2.0.0.html\\).", replace="(https://semver.org/spec/v20.0.html).\n\n## [Unreleased]"},
 ]
 disable-push = false

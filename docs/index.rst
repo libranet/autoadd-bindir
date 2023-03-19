@@ -1,5 +1,5 @@
-auto_activate
-=============
+autoadd_bindir
+==============
 
 .. toctree::
     :maxdepth: 2
@@ -14,7 +14,7 @@ auto_activate
     :maxdepth: 2
     :caption: Modules
 
-    modules/auto_activate/index.rst
+    modules/autoadd_bindir/index.rst
 
 
 Indices and tables

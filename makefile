@@ -19,7 +19,7 @@
 # Set default goal to not be dependent on sorting / ordering.
 .DEFAULT_GOAL := help  # defined in .make/default-help.mk
 
-PROJECT_NAME='auto-activate'
+PROJECT_NAME='autoadd-bindir'
 
 # Add virtualenv to PATH, same effect as activating the virtualenv
 export PATH := $(shell pwd)/.venv/bin:$(PATH)

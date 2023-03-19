@@ -55,7 +55,7 @@ def read_version(*names: str) -> str:
 
 current_year = dt.datetime.now().year
 project_prefix = ""
-module_name = "auto_activate"
+module_name = "autoadd_bindir"
 name = module_name
 
 autoclass_content = "both"

@@ -46,7 +46,7 @@ Usage:
   > pytest -v -m "not integration"
 
   # generate coverage in the terminal + in html-report
-  > pytest --cov="auto_activate"  --cov-report=term  --cov-report=html
+  > pytest --cov="autoadd_bindir"  --cov-report=term  --cov-report=html
 
 """
 import importlib
@@ -55,22 +55,23 @@ import sys
 
 import pytest
 
-# import auto_activate
+import autoadd_bindir
 
 # reload the module to fix coverage report
-# importlib.reload(auto_activate)
+importlib.reload(autoadd_bindir)
 
 
-def reload1(module_name = "auto_activate"):
-  """Import the module using its name.
-  Reload the module
-  """
-  module = importlib.import_module(module_name)
-  importlib.reload(module)
+# def reload1(module_name="autoadd_bindir"):
+#     """Import the module using its name.
+#     Reload the module
+#     """
+#     module = importlib.import_module(module_name)
+#     importlib.reload(module)
 
 
-reload1(module_name = "auto_activate")
-# reload1(module_name = "auto_activate.entrypoint")
+# reload1(module_name="autoadd_bindir")
+# reload1(module_name = "autoadd_bindir.entrypoint")
+
 
 @pytest.fixture
 def bin_dir():

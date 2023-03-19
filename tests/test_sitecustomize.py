@@ -15,4 +15,4 @@ def test_import_sitecustomize() -> None:
 def test_entrypoint_registration() -> None:
     from sitecustomize._vendor.importlib_metadata import entry_points
 
-    assert "auto_activate" in entry_points(group="sitecustomize").names
+    assert "autoadd_bindir" in entry_points(group="sitecustomize").names
