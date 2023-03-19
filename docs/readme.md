@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/libranet/autoadd-bindir/blob/main/docs/license.md)
 
-[![Read the Docs](https://readthedocs.org/projects/autoadd-bindir/badge/?version=latest)](https://autozdd-bindir.readthedocs.io/en/latest/)
+[![Read the Docs](https://readthedocs.org/projects/autoadd-bindir/badge/?version=latest)](https://autoadd-bindir.readthedocs.io/en/latest/)
 
 [![Stable Version](https://img.shields.io/pypi/v/autoadd-bindir?label=stable)]
 [PyPI Releases]
