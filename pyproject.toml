@@ -71,7 +71,7 @@ mypy_path = ["src"]
 
 [tool.poetry]
 name = "autoadd_bindir"
-version = "1.0" # version managed by poetry-dynamic-versioning
+version = "1.0.dev0" # version managed by poetry-dynamic-versioning
 description = "Automatically add bin-dir to PATH for every process in your virtualenv."
 readme = "docs/readme.md"
 authors = ["Wouter Vanden Hove <wouter@libranet.eu>"]
@@ -128,7 +128,6 @@ recommonmark = ">=0.7.1"
 Sphinx = ">=4.4.0"
 sphinx-autoapi = ">=1.8.4"
 sphinx-rtd-theme = ">=1.0.0"
-pandoc = "^2.3"
 
 [tool.poetry.group.ipython.dependencies]
 ipdb = ">=0.13.9"

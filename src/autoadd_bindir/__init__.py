@@ -1,5 +1,5 @@
 """autoadd_bindir.__init__."""
-__version__ = "1.0"
+__version__ = "1.0.dev0"
 __copyright__ = "Copyright 2023 Libranet - MIT License."
 import os
 import pathlib as pl
