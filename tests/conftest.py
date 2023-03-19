@@ -61,18 +61,6 @@ import autoadd_bindir
 importlib.reload(autoadd_bindir)
 
 
-# def reload1(module_name="autoadd_bindir"):
-#     """Import the module using its name.
-#     Reload the module
-#     """
-#     module = importlib.import_module(module_name)
-#     importlib.reload(module)
-
-
-# reload1(module_name="autoadd_bindir")
-# reload1(module_name = "autoadd_bindir.entrypoint")
-
-
 @pytest.fixture
-def bin_dir():
+def bin_dir() -> pl.Path:
     return pl.Path(sys.prefix) / "bin"

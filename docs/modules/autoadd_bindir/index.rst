@@ -19,6 +19,7 @@ Functions
 .. autoapisummary::
 
    autoadd_bindir.entrypoint
+   autoadd_bindir.get_bindir
    autoadd_bindir.cancel
 
 
@@ -44,7 +45,12 @@ Attributes
 
 .. py:function:: entrypoint()
 
-   Add python-bindir to PATH.
+   Prepend python-bindir to PATH.
+
+
+.. py:function:: get_bindir()
+
+   Return the bindit form the isolated virtual environment.
 
 
 .. py:function:: cancel()

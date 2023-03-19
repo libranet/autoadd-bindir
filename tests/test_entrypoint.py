@@ -3,9 +3,10 @@
 # pylint: disable=missing-function-docstring
 """Testing of module autoadd_bindir."""
 import os
+import pathlib as pl
 
 
-def test_autoadd_bindir(bin_dir) -> None:
+def test_autoadd_bindir(bin_dir: pl.Path) -> None:
     from autoadd_bindir import entrypoint
 
     # initially already set via sitecustomize

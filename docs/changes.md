@@ -1,9 +1,8 @@
-Changelog
-=========
-.. _changes:
+# Changelog
 
-TDB (Unreleased)
-------------------
+
+
+## TDB (Unreleased)
 
 - Add ``readthedocs.yaml``.
 

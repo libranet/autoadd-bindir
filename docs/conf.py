@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # pylint: disable=invalid-name
 """
 This file is execfile()d with the current directory set to its containing dir.
@@ -54,6 +53,7 @@ def read_version(*names: str) -> str:
 
 
 current_year = dt.datetime.now().year
+owner = "Libranet"
 project_prefix = ""
 module_name = "autoadd_bindir"
 name = module_name
@@ -103,7 +103,7 @@ autoapi_keep_files = True  # include them in git
 templates_path = ["_templates"]
 
 # The suffix of source filenames.
-source_suffix = ".rst"
+source_suffix = [".md", ".rst"]
 
 # The encoding of source files.
 # source_encoding = 'utf-8-sig'
@@ -113,7 +113,7 @@ master_doc = "index"
 
 # General information about the project.
 project = f"{project_prefix} {name}"
-copyright = f"{current_year}, Libranet"  # pylint: disable=redefined-builtin
+copyright = f"{current_year}, {owner}"  # pylint: disable=redefined-builtin
 
 
 # The version info for the project you're documenting, acts as replacement for
@@ -186,7 +186,7 @@ html_theme = "sphinx_rtd_theme"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = "img/logo.png"
+# html_logo = "img/logo.png"
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -258,11 +258,11 @@ latex_elements = {
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-latex_documents = [("index", f"{name}.tex", f"Documentation {name}", "Libranet", "howto")]
+latex_documents = [("index", f"{name}.tex", f"Documentation {name}", "{owner}", "howto")]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = html_logo
+# latex_logo = html_logo
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
@@ -286,7 +286,7 @@ latex_logo = html_logo
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 # man_pages = [
-#    ('index', name, u'Documentation {}'.format(name), [u'Libranet'], 1)
+#    ('index', name, f'Documentation {name}', [{owner}], 1)
 # ]
 
 # If true, show URL addresses after external links.

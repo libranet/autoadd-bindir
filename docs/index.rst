@@ -3,7 +3,6 @@ autoadd_bindir
 
 .. toctree::
     :maxdepth: 2
-    :caption: About this package
 
     readme
     changes
@@ -15,7 +14,6 @@ autoadd_bindir
     :caption: Modules
 
     modules/autoadd_bindir/index.rst
-
 
 Indices and tables
 ==================
