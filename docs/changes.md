@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## 1.0.1 \(2023-03-19\)
 
 
 ## 1.0.1a0 (23-03-19)
