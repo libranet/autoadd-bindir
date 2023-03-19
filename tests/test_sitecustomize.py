@@ -6,7 +6,7 @@
 
 def test_import_sitecustomize() -> None:
     try:
-        import sitecustomize
+        import sitecustomize  # noqa: F401
     except ImportError:
         # package sitecustomize-entrypoints is not installed
         assert False

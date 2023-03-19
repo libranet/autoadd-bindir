@@ -51,4 +51,4 @@ def cancel() -> None:  # pragma: no cover
     zz_autoadd_bindir = "autoadd_bindir.entrypoint:autoadd_bindir"
 
     """
-    pass
+    pass  # pylint: disable=unnecessary-pass

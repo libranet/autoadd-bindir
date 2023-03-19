@@ -218,5 +218,9 @@ addopts = "--junit-xml='var/coverage/pytest.xml'"
 
 [tool.ruff]
 # https://beta.ruff.rs/docs/configuration/
+# https://github.com/pandas-dev/pandas/blob/main/pyproject.toml
 cache-dir = "var/cache/ruff"
+ignore = [
+    "B011", # B011 Do not call assert False since python -O removes these calls.
+]
 line-length = 120
