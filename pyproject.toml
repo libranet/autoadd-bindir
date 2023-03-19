@@ -71,9 +71,9 @@ mypy_path = ["src"]
 
 [tool.poetry]
 name = "autoadd_bindir"
-version = "1.1.1a0" # version managed by poetry-dynamic-versioning
-description = "Automatacilly add bin-dir to PATH for every process in your virtualenv."
-readme = "docs/readme.rst"
+version = "1.0" # version managed by poetry-dynamic-versioning
+description = "Automatically add bin-dir to PATH for every process in your virtualenv."
+readme = "docs/readme.md"
 authors = ["Wouter Vanden Hove <wouter@libranet.eu>"]
 license = "MIT"
 maintainers = ["Wouter Vanden Hove <wouter@libranet.eu>"]
