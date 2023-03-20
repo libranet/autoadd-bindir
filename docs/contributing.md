@@ -1,6 +1,6 @@
-# Contributing
+# How to contribute
 
-When contributing to this repository, please first discuss the change you wish to make via issue, email, 
+When contributing to this repository, please first discuss the change you wish to make via issue, email,
 or any other method with the owners of this repository before making a change.
 
 Please note we have a [code of conduct](code-of-conduct.md), please follow it in all your interactions with the project.
@@ -29,7 +29,7 @@ To set up a development environment, please follow these steps:
 You've found a bug in the source code, a mistake in the documentation or maybe you'd like a new feature?
 Take a look at [GitHub Discussions](https://github.com/libranet/autoadd_bindir/discussions) to see if it's already being discussed.
 
-You can help us by [submitting an issue on GitHub](https://github.com/libranet/autoadd_bindir/issues). 
+You can help us by [submitting an issue on GitHub](https://github.com/libranet/autoadd_bindir/issues).
 Before you create an issue, make sure to search the issue archive -- your issue may have already been addressed.
 
 Please try to create bug reports that are:
@@ -52,3 +52,5 @@ Please try to create bug reports that are:
    autoadd_bindir uses [conventional commits](https://www.conventionalcommits.org), so please follow the specification in your commit messages.
 5. Push to the branch (`git push origin feat/amazing_feature`)
 6. [Open a Pull Request](https://github.com/libranet/autoadd_bindir/compare?expand=1)
+
+

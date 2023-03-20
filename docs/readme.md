@@ -3,16 +3,17 @@
 
 # Autoadd-bindir
 
-Automatically add the bin-directory of your virtualenv to the ``PATH``-environment variable.
-
-You no longer need to manually *activate* your virtual environment.
+Automatically add the bin-directory of your virtualenv to the ``PATH``-environment variable
+via ``sitecustomize``-entrypoint. You now no  longer need to manually *activate* your
+virtual environment for the sole purpose of adding thie bin-drectory to your ``$PATH``.
 
 ## How does it work?
 
-We register the ``autoadd_bin.entrypoint()``-function to sitecustomize-module that run for every python
-The function will look up ``sys.prefix`` of your python-executable and add the corresponding bin-directory
-to the ``PATH``.
+We register the ``autoadd_bin.entrypoint()``-function to the ``sitecustomize``-module that is installed by the
+[sitecustomize-entrypoints](http://pypi.python.org/pypi/sitecustomize-entrypoints)-package.
 
+The registered function will look up ``sys.prefix`` of your python-executable and
+add the corresponding bin-directory to the ``PATH``.
 
 
 ## Installation
@@ -31,8 +32,8 @@ Or add to your poetry-based project:
 
 
 ## Validate & Usage
-After installing this package there is nothing left you need to do explicitly.
-We can validate the plugin works correctly b starting a python-session and checking the ``PATH``-environment-variable?
+After installing this package there is nothing left to do explicitly.
+We can validate that the plugin work correctly by starting a python-session and checking the ``PATH``-environment-variable:
 
 ```bash
 > bin/python
@@ -47,8 +48,7 @@ We can validate the plugin works correctly b starting a python-session and check
 
 ## Registered sitecustomize-entrypoint
 
-
-The ``autoadd_bindir``-function is registered as a ``sitecustomize``-entrypoint in pyproject.toml_:
+The ``autoadd_bindir``-function is registered as a ``sitecustomize``-entrypoint in our pyproject.toml_:
 
 ``` toml
     [tool.poetry.plugins]
@@ -56,15 +56,13 @@ The ``autoadd_bindir``-function is registered as a ``sitecustomize``-entrypoint 
     autoadd_bindir = "autoadd_bindir:entrypoint"
 ```
 
-Sitecustomize and all its entrypoints will be executed at the start of *every* python-process.
-
+Sitecustomize and all its registered entrypoints will be executed at the start of *every* python-process.
 For more information, please see [sitecustomize-entrypoints](http://pypi.python.org/pypi/sitecustomize-entrypoints)
 
 
 
+## Notable dependencies
 
-## Dependencies
-
- - sitecustomize-entrypoints
+- [sitecustomize-entrypoints](http://pypi.python.org/pypi/sitecustomize-entrypoints)
 
 

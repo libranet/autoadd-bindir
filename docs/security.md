@@ -12,8 +12,13 @@ currently being supported with security updates.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+This project follows a 90 day disclosure timeline.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+To report a security issue, please an email security@libranet.eu with
+
+- a description of the issue
+- the steps you took to create the issue,
+- affected versions
+- and if known, mitigations for the issue
+
+Our team will acknowledge receiving your email within 3 working days.

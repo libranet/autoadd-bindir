@@ -2,9 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## Unreleased (YYYY-MM-DD)
+
+- Add boilerplate-files to comply with Github's [_Community Standards_](https://github.com/libranet/autoadd-bindir/community)
+
+- Refactored make-file.
+
 ## 1.0.1 (2023-03-19)
 
 - Test releasing via ``poetry-release``.
+
 
 ## 1.0 (23-03-19)
 
