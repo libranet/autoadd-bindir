@@ -61,6 +61,13 @@ Sitecustomize and all its registered entrypoints will be executed at the start o
 For more information, please see [sitecustomize-entrypoints](http://pypi.python.org/pypi/sitecustomize-entrypoints)
 
 
+# Compatibility
+
+ [![Python Version](https://img.shields.io/pypi/pyversions/autoadd-bindir?:alt:PyPI-PythonVersion)](https://pypi.org/project/autoadd-bindir/)
+ [![PyPI - Implementation](https://img.shields.io/pypi/implementation/autoadd-bindir?:alt:PyPI-Implementation)](https://pypi.org/project/autoadd-bindir/)
+
+``autoadd-bindir``  works on Python 3.8+, including PyPy3. Tested until Python 3.11,
+
 
 ## Notable dependencies
 
