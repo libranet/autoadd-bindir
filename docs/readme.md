@@ -61,7 +61,7 @@ Sitecustomize and all its registered entrypoints will be executed at the start o
 For more information, please see [sitecustomize-entrypoints](http://pypi.python.org/pypi/sitecustomize-entrypoints)
 
 
-# Compatibility
+## Compatibility
 
  [![Python Version](https://img.shields.io/pypi/pyversions/autoadd-bindir?:alt:PyPI-PythonVersion)](https://pypi.org/project/autoadd-bindir/)
  [![PyPI - Implementation](https://img.shields.io/pypi/implementation/autoadd-bindir?:alt:PyPI-Implementation)](https://pypi.org/project/autoadd-bindir/)
