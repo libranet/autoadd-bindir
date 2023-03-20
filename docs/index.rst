@@ -7,6 +7,9 @@ autoadd_bindir
     readme
     changes
     contributors
+    contributing
+    code-of-conduct
+    security
     license
 
 .. toctree::
