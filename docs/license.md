@@ -1,4 +1,6 @@
-# The MIT License (MIT)
+# License
+
+## The MIT License
 
 Copyright (c) 2023 [Libranet.eu](https://libranet.eu).
 
