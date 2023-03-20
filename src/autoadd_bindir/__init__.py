@@ -28,7 +28,7 @@ def entrypoint() -> None:
 
 
 def get_bindir() -> pl.Path:
-    """Return the bindit form the isolated virtual environment."""
+    """Return the bindir from the isolated virtual environment."""
     bin_dir = pl.Path(sys.prefix) / "bin"
     return bin_dir
 
