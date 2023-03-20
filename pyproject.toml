@@ -67,6 +67,7 @@ check_untyped_defs = true
 exclude = "^bin/"
 ignore_missing_imports = true
 mypy_path = ["src"]
+strict = true
 
 
 [tool.poetry]
@@ -177,7 +178,7 @@ autoadd_bindir = "autoadd_bindir:entrypoint"
 
 [tool.poetry-release]
 release-replacements = [
-    { file = "docs/changes.md", pattern = "\\[Unreleased\\]", replace = "{version} \\({date}\\)" },
+    { file = "docs/changes.md", pattern = "\\[Unreleased\\]", replace = "{version} ({date})" },
     # { file = "docs/changes.md", pattern = "TBD \\(Unreleased\\)", replace = "{version} \\({date}\\)" },
     { file = "src/autoadd_bindir/__init__.py", pattern = '__version__ = "{version}"', replace = '__version__ = "{next_version}"' },
 ]
