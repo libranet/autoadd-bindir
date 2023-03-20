@@ -10,7 +10,7 @@ autoadd_bindir
     contributing
     code-of-conduct
     security
-    license
+    ../license
 
 .. toctree::
     :maxdepth: 2
