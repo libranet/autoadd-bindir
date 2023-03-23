@@ -87,7 +87,7 @@ keywords = ["entrypoints", "sitecustomize"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Environment :: Console",
-    "Framework :: Sitecustomize-entrypoints",
+    # "Framework :: Sitecustomize",  # propose
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Operating System :: POSIX :: Linux",
