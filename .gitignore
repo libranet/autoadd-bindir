@@ -25,6 +25,7 @@
 # dev-symlinks to .venv to make bin/python work
 /bin
 /lib
+/lib64
 /pyvenv.cfg
 
 # exclude actual virtual-environment
@@ -41,5 +42,3 @@
 
 # excluded generated python-files Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
-*$py.class

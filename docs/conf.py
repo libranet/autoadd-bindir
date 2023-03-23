@@ -52,13 +52,13 @@ def read_version(*names: str) -> str:
     raise RuntimeError("Unable to find version string.")
 
 
+autoclass_content = "both"
 current_year = dt.datetime.now().year
 owner = "Libranet"
-project_prefix = ""
 module_name = "autoadd_bindir"
-name = module_name
-
-autoclass_content = "both"
+package_name = module_name.replace("_", "-")
+project_prefix = ""
+# name = module_name.replace("_", "-")
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -112,8 +112,8 @@ source_suffix = [".md", ".rst"]
 master_doc = "index"
 
 # General information about the project.
-project = f"{project_prefix} {name}"
-copyright = f"{current_year}, {owner}"  # pylint: disable=redefined-builtin
+project = f"{project_prefix} f{package_name}"
+copyright = f"{current_year}, f{owner}"  # pylint: disable=redefined-builtin
 
 
 # The version info for the project you're documenting, acts as replacement for
@@ -240,25 +240,22 @@ html_last_updated_fmt = "%b %d, %Y"
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = f"{name}-docs"
+htmlhelp_basename = f"{package_name}-docs"
 
 
 # -- Options for LaTeX output --------------------------------------------------
 
 latex_elements = {
-    # The paper size ('letterpaper' or 'a4paper').
-    "papersize": "a4paper",
-    # The font size ('10pt', '11pt' or '12pt').
-    "pointsize": "10pt",
-    # Additional stuff for the LaTeX preamble.
-    # 'preamble': '',
-    "classoptions": ",openany,oneside",
     "babel": "\\usepackage[english]{babel}",
+    "classoptions": ",openany,oneside",
+    "papersize": "a4paper",
+    "pointsize": "10pt",
+    "preamble": "\\usepackage{svg}",
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-latex_documents = [("index", f"{name}.tex", f"Documentation {name}", "{owner}", "howto")]
+latex_documents = [("index", f"{package_name}.tex", f"Documentation {package_name}", f"{owner}", "howto")]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
@@ -286,7 +283,7 @@ latex_documents = [("index", f"{name}.tex", f"Documentation {name}", "{owner}", 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 # man_pages = [
-#    ('index', name, f'Documentation {name}', [{owner}], 1)
+#    ('index', name, f'Documentation {package_name}', [f{owner}], 1)
 # ]
 
 # If true, show URL addresses after external links.

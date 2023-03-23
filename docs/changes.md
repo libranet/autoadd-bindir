@@ -3,7 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 
-## Unreleased (YYYY-MM-DD)
+
+## 1.0.2 (2023-03-20)
 
 - Add boilerplate-files to comply with Github's [_Community Standards_](https://github.com/libranet/autoadd-bindir/community)
 
