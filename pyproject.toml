@@ -10,6 +10,8 @@
 #
 # Usage:
 #   > poetry install
+#   > poetry install --only docs
+#   > poetry install (--with|--without) (docs|dev|ipython|profiling|testing|typing)
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -136,7 +138,7 @@ ipython = ">=8.4.0"
 [tool.poetry.group.profiling.dependencies]
 tuna = ">=0.5.11"
 
-[tool.poetry.group.tests.dependencies]
+[tool.poetry.group.testing.dependencies]
 pytest = ">=7.0.1"
 pytest-cov = ">=3.0.0"
 
