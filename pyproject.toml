@@ -19,7 +19,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.black]
 line-length = 120
 target_version = ["py310"]
-include = '\.py$'  # regex -> single-quotes
+include = '\.py$'          # regex -> single-quotes
 
 
 [tool.coverage.html]
@@ -52,11 +52,11 @@ per_file_ignores = [
 
 
 [tool.isort]
-line_length = 120             # corresponds to -w  flag
-multi_line_output = 3         # corresponds to -m  flag
 include_trailing_comma = true # corresponds to -tc flag
-skip_glob = '^((?!py$).)*$'   # isort all Python files
+line_length = 120             # corresponds to -w  flag
 known_third_party = []
+multi_line_output = 3         # corresponds to -m  flag
+skip_glob = '^((?!py$).)*$'   # isort all Python files
 
 
 [tool.mypy]
@@ -73,9 +73,9 @@ strict = true
 [tool.poetry]
 name = "autoadd_bindir"
 version = "1.0.2a0" # version managed by poetry-dynamic-versioning
+license = "MIT"
 description = "Automatically add bin-dir to PATH for every process in your virtualenv."
 readme = "docs/readme.md"
-license = "MIT"
 authors = ["Wouter Vanden Hove <wouter@libranet.eu>"]
 maintainers = ["Wouter Vanden Hove <wouter@libranet.eu>"]
 homepage = "https://github.com/libranet/autoadd_bindir"
