@@ -1,6 +1,9 @@
 {
     // oh-my-posh uses special font (CaskaydiaCove) to display icons in the console
     "editor.fontFamily": "Consolas, 'Courier New', monospace,'DejaVu Sans Mono for Powerline','CaskaydiaCove NF'",
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
     "files.associations": {
         ".env": "dotenv",
         ".env.example": "dotenv"
