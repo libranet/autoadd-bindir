@@ -7,10 +7,11 @@
 # It's the equivalent of r-strings in Python.  Multiline strings are treated as
 # verbose regular expressions by Black.  Use [ ] to denote a significant space
 # character.
+#
+# Usage:
+#   > poetry install
 
 [build-system]
-# requires = ["poetry>=1.1", "poetry-dynamic-versioning"]
-# build-backend = "poetry.masonry.api"
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
@@ -18,15 +19,14 @@ build-backend = "poetry.core.masonry.api"
 [tool.black]
 line-length = 120
 target_version = ["py310"]
-include = '\.py$'          # regex -> single-quotes
+include = '\.py$'  # regex -> single-quotes
 
 
 [tool.coverage.html]
-directory = "var/coverage/html" # relative to $CWD
+directory = "var/coverage/html"
 
 [tool.coverage.xml]
-output = "var/coverage/coverage.xml" # relative to $CWD
-
+output = "var/coverage/coverage.xml"
 
 [tool.coverage.report]
 # cfr. https://coverage.readthedocs.io/en/coverage-4.2/excluding.html
@@ -41,13 +41,11 @@ include = ["src/*"]
 
 [tool.coverage.run]
 branch = true
-data_file = "var/coverage/coverage.db" # defaults to .coverage
+data_file = "var/coverage/coverage.db"
 
 
 [tool.flake8]
-max_line_length = 140
-exclude = "bindings"
-
+max_line_length = 121
 per_file_ignores = [
     "__init__.py:F401", # F401: imported but unused
 ]
@@ -77,8 +75,8 @@ name = "autoadd_bindir"
 version = "1.0.2a0" # version managed by poetry-dynamic-versioning
 description = "Automatically add bin-dir to PATH for every process in your virtualenv."
 readme = "docs/readme.md"
-authors = ["Wouter Vanden Hove <wouter@libranet.eu>"]
 license = "MIT"
+authors = ["Wouter Vanden Hove <wouter@libranet.eu>"]
 maintainers = ["Wouter Vanden Hove <wouter@libranet.eu>"]
 homepage = "https://github.com/libranet/autoadd_bindir"
 repository = "https://github.com/libranet/autoadd_bindir"
@@ -99,12 +97,10 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: PyPy",
     "Typing :: Typed",
 ]
-
 packages = [{ include = "autoadd_bindir", from = "src" }]
 
 
 [tool.poetry.dependencies]
-# These packages are mandatory and form the core of this package’s distribution.
 python = ">=3.8.0,<4.0"
 sitecustomize-entrypoints = ">=0.1.0"
 
