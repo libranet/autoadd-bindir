@@ -72,9 +72,19 @@ mypy_path = ["src"]
 strict = true
 
 
+[tool.nox]
+envdir = "var/cache/nox2"
+# default_python = "3.10m"
+# sessions = ["tests-3.10m", "tests-3.11m"]
+
+# [tool.nox.session]
+# python = ["3.10n", "3.11n"]
+
+
 [tool.poetry]
 name = "autoadd_bindir"
-version = "1.0.2a0" # version managed by poetry-dynamic-versioning
+# version = "1.0.2a0"
+version = "0" # version managed by poetry-version-plugin
 license = "MIT"
 description = "Automatically add bin-dir to PATH for every process in your virtualenv."
 readme = "docs/readme.md"
@@ -123,7 +133,6 @@ pyroma = ">=4.2"
 twine = ">=4.0.2"
 
 [tool.poetry.group.docs.dependencies]
-# poetry install
 autoapi = ">=2.0.1"
 myst-parser = ">=1.0.0"
 recommonmark = ">=0.7.1"
@@ -140,8 +149,11 @@ importtime-waterfall = ">=1.0.0"
 tuna = ">=0.5.11"
 
 [tool.poetry.group.testing.dependencies]
+nox = ">=2022.11.21"
+nox-poetry = ">=1.0.2"
 pytest = ">=7.0.1"
 pytest-cov = ">=3.0.0"
+tox = ">=4.4.7"
 
 [tool.poetry.group.typing.dependencies]
 lxml = { version = ">=4.9.2", optional = true, allow-prereleases = false } # mypy coverage-report
@@ -152,28 +164,29 @@ mypy = ">=0.931"
 "Bug Tracker" = "https://github.com/Libranet/autoadd_bindir/issues"
 
 
-[tool.poetry2conda]
-# https://pypi.org/project/poetry2conda/
-# https://levelup.gitconnected.com/publishing-your-python-package-on-conda-and-conda-forge-309a405740cf
-name = "conda-base"
-
-
-[tool.poetry-dynamic-versioning]
-# cfr https://github.com/mtkennerly/poetry-dynamic-versioning
-enable = true
-vcs = "git"
-style = "semver"
-
-[tool.poetry-dynamic-versioning.substitution]
-files = ["src/autoadd_bindir/__init__.py", "docs/changes.md"]
-
-
 [tool.poetry.plugins] # Optional super table
 
 [tool.poetry.plugins."sitecustomize"]
 # https://python-poetry.org/docs/pyproject/#plugins
 # https://github.com/Darsstar/sitecustomize-entrypoints/blob/main/src/sitecustomize/__init__.py
 autoadd_bindir = "autoadd_bindir:entrypoint"
+
+
+[tool.poetry2conda]
+# https://pypi.org/project/poetry2conda/
+# https://levelup.gitconnected.com/publishing-your-python-package-on-conda-and-conda-forge-309a405740cf
+name = "conda-base"
+
+
+# [tool.poetry-dynamic-versioning]
+# # cfr https://github.com/mtkennerly/poetry-dynamic-versioning
+# enable = true
+# vcs = "git"
+# style = "semver"
+
+# [tool.poetry-dynamic-versioning.substitution]
+# files = ["src/autoadd_bindir/__init__.py", "docs/changes.md"]
+
 
 [tool.poetry-release]
 release-replacements = [
@@ -191,6 +204,10 @@ post-release-commit-message = "Start next development iteration {next_version}"
 sign-commit = false
 sign-tag = false
 tag-name = "{version}"
+
+
+[tool.poetry-version-plugin]
+source = "init"
 
 [tool.pylint.format]
 max-line-length = 120
