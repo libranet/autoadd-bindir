@@ -73,7 +73,7 @@ strict = true
 
 
 [tool.nox]
-envdir = "var/cache/nox2"
+envdir = "var/cache/nox"
 # default_python = "3.10m"
 # sessions = ["tests-3.10m", "tests-3.11m"]
 
@@ -229,9 +229,28 @@ log_cli_level = "NOTSET"
 filterwarnings = []
 markers = ["unit", "integration"]
 testpaths = ["tests"]
-
 # the junit-report is used to report coverage in gitlab
 addopts = "--junit-xml='var/coverage/pytest.xml'"
+
+
+[tool.tox]
+# see https://tox.wiki/en/3.5.0/example/basic.html#pyproject-toml-tox-legacy-ini
+legacy_tox_ini = """
+[tox]
+envlist = py{39,310,311}
+# envlist = [py39, py310, py311]
+isolated_build = True
+toxworkdir = var/cache/tox
+
+[testenv]
+allowlist_externals =
+    make
+    poetry
+skip_install = true
+commands =
+    make install
+    pytest --pdb --exitfirst
+"""
 
 
 [tool.ruff]
