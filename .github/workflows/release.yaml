@@ -41,6 +41,12 @@ jobs:
       - name: Build package
         run: poetry build
 
+      # - name: Publish distribution to Test PyPI
+      #   uses: pypa/gh-action-pypi-publish@release/v1
+      #   with:
+      #     password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+      #     repository-url: https://test.pypi.org/legacy/
+
       # https://github.com/pypa/gh-action-pypi-publish
       # https://github.com/marketplace/actions/pypi-publish
       # https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
