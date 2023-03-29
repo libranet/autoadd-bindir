@@ -3,11 +3,17 @@
 All notable changes to this project will be documented in this file.
 
 
+## Unreleased (YYYY-MM-DD)
+
+- Update **gh-action-pypi-publish** to **@v1.8.3**
+
+
 ## 1.0.3 (2023-03-29)
 
 - Fix poetry installation in github-release-action.
 
 - Add poetry version-pinning in github-release-action.
+
 
 ## 1.0.2 (2023-03-29)
 
