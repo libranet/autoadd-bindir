@@ -83,7 +83,6 @@ envdir = "var/cache/nox"
 
 [tool.poetry]
 name = "autoadd_bindir"
-# version = "1.0.2a0"
 version = "0" # version managed by poetry-version-plugin
 license = "MIT"
 description = "Automatically add bin-dir to PATH for every process in your virtualenv."
@@ -109,7 +108,6 @@ classifiers = [
     "Typing :: Typed",
 ]
 packages = [{ include = "autoadd_bindir", from = "src" }]
-
 
 [tool.poetry.dependencies]
 python = ">=3.8.0,<4.0"
@@ -150,6 +148,7 @@ importtime-waterfall = ">=1.0.0"
 tuna = ">=0.5.11"
 
 [tool.poetry.group.testing.dependencies]
+coverage = { extras = ["toml"], version = ">=6.2" }
 nox = ">=2022.11.21"
 nox-poetry = ">=1.0.2"
 pytest = ">=7.0.1"
@@ -162,7 +161,8 @@ mypy = ">=0.931"
 
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/Libranet/autoadd_bindir/issues"
+Issues = "https://github.com/libranet/autoadd_bindir/issues"
+Changelog = "https://github.com/libranet/autoadd_bindir/releases"
 
 
 [tool.poetry.plugins] # Optional super table
@@ -190,21 +190,18 @@ name = "conda-base"
 
 
 [tool.poetry-release]
+disable-dev = false
+disable-push = false
+disable-tag = false
+sign-commit = false
+sign-tag = false
+post-release-commit-message = "Start next development iteration {next_version}"
+release-commit-message = "Release {package_name} {version}"
+tag-name = "{version}"
 release-replacements = [
     { file = "docs/changes.md", pattern = "Unreleased \\(YYYY-MM-DD\\)", replace = "{version} ({date})" },
     { file = "src/autoadd_bindir/__init__.py", pattern = '__version__ = "{version}"', replace = '__version__ = "{next_version}"' },
 ]
-
-## Unreleased (YYYY-MM-DD)
-
-disable-dev = false
-disable-push = false
-disable-tag = false
-release-commit-message = "Release {package_name} {version}"
-post-release-commit-message = "Start next development iteration {next_version}"
-sign-commit = false
-sign-tag = false
-tag-name = "{version}"
 
 
 [tool.poetry-version-plugin]

@@ -1,6 +1,8 @@
 """autoadd_bindir.__init__."""
 __version__ = "1.0.2a0"
-__copyright__ = "Copyright 2023 Libranet - MIT License."
+__copyright__ = "Copyright 2023 Libranet."
+__license__ = "MIT License"
+
 import os
 import pathlib as pl
 import sys
@@ -8,7 +10,6 @@ import sys
 
 def entrypoint() -> None:
     """Prepend python-bindir to PATH."""
-
     bin_dir = get_bindir()
 
     if not bin_dir.exists():  # pragma: no cover

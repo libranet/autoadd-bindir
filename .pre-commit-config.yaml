@@ -112,7 +112,7 @@ repos:
     hooks:
       - id: fix-encoding-pragma
         name: Fix encoding pragma
-        entry: fix-encoding-pragma
+        entry: fix-encoding-pragma --remove
         language: system
         types: [python]
 
