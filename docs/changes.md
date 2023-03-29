@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased (YYYY-MM-DD)
 
-- No changes yet
+- Fix poetry installation in github-release-action.
+
+- Add poetry version-pinning in github-release-action.
 
 ## 1.0.2 (2023-03-29)
 
@@ -15,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - Refactored make-file.
 
 - Fix some typo's in docstrings.
+
 
 ## 1.0.1 (2023-03-19)
 
