@@ -1,5 +1,8 @@
 # See ../makefile
 
+GIT_CLONE_URL := $(shell git remote get-url --push origin)
+CLONE_DIR := 'var/tmp/cloned'
+
 .PHONY: git-init  ## initialize  new git-repo
 git-init:
 	git init
@@ -32,3 +35,22 @@ git-show-tags:
 	git tag -l
 	@echo -e "Remote tags"
 	git ls-remote --tags
+
+.PHONY: git-show-url  ## show clone-url
+git-show-url:
+	@ git remote get-url --push origin
+
+
+.PHONY: git-tmp-clone  ## clone repo to tmp-dir
+git-tmp-clone:
+	@ git clone ${GIT_CLONE_URL} ${CLONE_DIR}
+
+
+.PHONY: publish-to-pypi  ## publish-to-pypi
+publish-to-pypi: git-tmp-clone
+	set -e ; \
+	cd ${CLONE_DIR} && \
+	git fetch --tags && \
+	LATEST_TAG=$$(git describe --tags --abbrev=0) && \
+	poetry build && \
+	poetry publish
