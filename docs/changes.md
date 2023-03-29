@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 
-## Unreleased (YYYY-MM-DD)
+## 1.0.2 (2023-03-29)
 
 - Add github-actions for [linting](https://github.com/libranet/autoadd-bindir/actions/workflows/linting.yaml) and [testing](https://github.com/libranet/autoadd-bindir/actions/workflows/testing.yaml).
 - Add boilerplate-files to comply with Github's [_Community Standards_](https://github.com/libranet/autoadd-bindir/community)
