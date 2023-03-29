@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 
-## Unreleased (YYYY-MM-DD)
+## 1.0.4 (2023-03-29)
 
 - Update **gh-action-pypi-publish** to **@v1.8.3**
 
