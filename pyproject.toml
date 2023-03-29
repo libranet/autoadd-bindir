@@ -83,7 +83,7 @@ envdir = "var/cache/nox"
 
 [tool.poetry]
 name = "autoadd_bindir"
-version = "1.0.3a0" # version managed by poetry-version-plugin
+version = "1.0.3" # version managed by poetry-version-plugin
 license = "MIT"
 description = "Automatically add bin-dir to PATH for every process in your virtualenv."
 readme = "docs/readme.md"

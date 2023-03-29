@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 
-## Unreleased (YYYY-MM-DD)
+## 1.0.3 (2023-03-29)
 
 - Fix poetry installation in github-release-action.
 
