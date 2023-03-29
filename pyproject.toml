@@ -83,7 +83,7 @@ envdir = "var/cache/nox"
 
 [tool.poetry]
 name = "autoadd_bindir"
-version = "0" # version managed by poetry-version-plugin
+version = "1.0.2" # version managed by poetry-version-plugin
 license = "MIT"
 description = "Automatically add bin-dir to PATH for every process in your virtualenv."
 readme = "docs/readme.md"
@@ -98,6 +98,7 @@ classifiers = [
     "Environment :: Console",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
     "Operating System :: POSIX :: Linux",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.10",
@@ -105,6 +106,8 @@ classifiers = [
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
     "Typing :: Typed",
 ]
 packages = [{ include = "autoadd_bindir", from = "src" }]
