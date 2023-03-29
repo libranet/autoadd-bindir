@@ -1,3 +1,7 @@
+# Official docs:
+# - https://docs.github.com/en/actions
+# - https://github.com/actions
+
 name: PyPI Release
 
 on:
@@ -9,11 +13,12 @@ on:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
-
     steps:
+      # https://github.com/actions/checkout
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # https://github.com/actions/setup-python
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -28,6 +33,9 @@ jobs:
       - name: Build package
         run: poetry build
 
+      # https://github.com/pypa/gh-action-pypi-publish
+      # https://github.com/marketplace/actions/pypi-publish
+      # https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
       - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@v1
         with:

@@ -1,3 +1,7 @@
+# Official docs:
+# - https://docs.github.com/en/actions
+# - https://github.com/actions
+
 name: Linting
 
 env:
@@ -20,11 +24,13 @@ jobs:
         timeout-minutes: 5
 
         steps:
+            # https://github.com/actions/checkout
             - uses: actions/checkout@v3
               with:
                   persist-credentials: false
                   fetch-depth: 0
 
+            # https://github.com/actions/setup-python
             - name: Set up Python 3.11
               uses: actions/setup-python@v4
               with:
