@@ -79,9 +79,17 @@ jobs:
               run: |
                   make install
 
+            - name: Install coverage
+              run: |
+                  bin/pip install coverage
+
             - name: Run tests
               run: |
                   poetry run -- pytest tests
+
+            - name: Show dir contents
+              run: |
+                  ls -al var/coverage/
 
             # https://github.com/codecov/codecov-action
             - name: "Upload coverage to Codecov"
