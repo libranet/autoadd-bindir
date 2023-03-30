@@ -10,6 +10,11 @@ poetry-install-no-dev:
 	poetry install --no-dev
 
 
+.PHONY: poetry-lock ## run poetry lock to update poetry.lock
+poetry-lock:
+	poetry lock
+
+
 .PHONY: poetry-update ## run poetry update to update your project-dependencies
 poetry-update:
 	poetry update
