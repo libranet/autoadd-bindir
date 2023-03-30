@@ -81,6 +81,10 @@ jobs:
             #   run: |
             #       bin/pip install coverage
 
+            - name: List files
+              run: |
+                  ls -al bin/co*
+
             - name: Run tests with coverage
               run: |
                   make pytest-cov
