@@ -83,5 +83,11 @@ jobs:
               run: |
                   poetry run -- pytest tests
 
+            # https://github.com/codecov/codecov-action
             - name: "Upload coverage to Codecov"
               uses: codecov/codecov-action@v3
+              # fail_ci_if_error: false # optional (default = false)
+              files: var/coverage/coverage.xml, # optional
+              flags: unittests # optional
+              token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+              verbose: true # optional (default = false)

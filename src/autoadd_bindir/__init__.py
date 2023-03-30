@@ -1,5 +1,5 @@
 """autoadd_bindir.__init__."""
-__version__ = "1.0.4"
+__version__ = "1.0.5"
 __copyright__ = "Copyright 2023 Libranet."
 __license__ = "MIT License"
 

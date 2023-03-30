@@ -43,14 +43,18 @@ git-show-url:
 
 .PHONY: git-tmp-clone  ## clone repo to tmp-dir
 git-tmp-clone:
+	LATEST_TAG=$$(git describe --tags --abbrev=0)
+	cd ${CLONE_DIR}-${LATEST_TAG}
 	@ git clone ${GIT_CLONE_URL} ${CLONE_DIR}
 
 
 .PHONY: publish-to-pypi  ## publish-to-pypi
 publish-to-pypi: git-tmp-clone
 	set -e ; \
-	cd ${CLONE_DIR} && \
+	LATEST_TAG=$$(git describe --tags --abbrev=0)
+	cd ${CLONE_DIR}-${LATEST_TAG} && \
 	git fetch --tags && \
-	LATEST_TAG=$$(git describe --tags --abbrev=0) && \
+	&& \
+	git checkout ${LATEST_TAG}
 	poetry build && \
 	poetry publish

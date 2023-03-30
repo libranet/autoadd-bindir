@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 
+
+
 ## 1.0.4 (2023-03-29)
 
 - Update **gh-action-pypi-publish** to **@v1.8.3**
@@ -23,6 +25,8 @@ All notable changes to this project will be documented in this file.
 - Refactored make-file.
 
 - Fix some typo's in docstrings.
+
+
 
 
 ## 1.0.1 (2023-03-19)
