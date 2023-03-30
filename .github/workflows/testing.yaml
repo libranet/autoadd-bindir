@@ -83,9 +83,13 @@ jobs:
               run: |
                   bin/pip install coverage
 
+            # - name: Run tests
+            #   run: |
+            #       poetry run -- pytest tests
+
             - name: Run tests
               run: |
-                  poetry run -- pytest tests
+                  make pytest-cov
 
             - name: Show dir contents
               run: |
