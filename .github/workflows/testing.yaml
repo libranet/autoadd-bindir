@@ -79,9 +79,9 @@ jobs:
               run: |
                   make install
 
-            - name: Install coverage
-              run: |
-                  bin/pip install coverage
+            # - name: Install coverage
+            #   run: |
+            #       bin/pip install coverage
 
             # - name: Run tests
             #   run: |
@@ -91,17 +91,17 @@ jobs:
               run: |
                   make pytest-cov
 
-            - name: Show dir contents
-              run: |
-                  ls -al var/coverage/
+            # - name: Show dir contents
+            #   run: |
+            #       ls -al var/coverage/
 
             # https://github.com/codecov/codecov-action
             - name: "Upload coverage to Codecov"
               uses: codecov/codecov-action@v3
               with:
-                  # fail_ci_if_error: false # optional (default = false)
-                  # files: var/coverage/coverage.xml, # optional
-                  directory: var/coverage
+                  fail_ci_if_error: false # optional (default = false)
+                  files: var/coverage/coverage.xml, # optional
+                  # directory: var/coverage
                   flags: unittests # optional
                   token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
                   verbose: true # optional (default = false)

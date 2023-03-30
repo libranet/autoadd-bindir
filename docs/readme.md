@@ -1,6 +1,7 @@
 [![Testing](https://img.shields.io/github/actions/workflow/status/libranet/autoadd-bindir/testing.yaml?branch=main&longCache=true&style=flat-square&label=tests&logo=GitHub%20Actions&logoColor=fff")](https://github.com/libranet/autoadd-bindir/actions/workflows/testing.yaml)
 [![Linting](https://img.shields.io/github/actions/workflow/status/libranet/autoadd-bindir/linting.yaml?branch=main&longCache=true&style=flat-square&label=linting&logo=GitHub%20Actions&logoColor=fff")](https://github.com/libranet/autoadd-bindir/actions/workflows/linting.yaml)
 [![Read the Docs](https://readthedocs.org/projects/autoadd-bindir/badge/?version=latest)](https://autoadd-bindir.readthedocs.io/en/latest/)
+[![codecov.io](https://codecov.io/github/libranet/autoadd-bindir/coverage.svg?branch=main)](https://codecov.io/github/libranet/autoadd-bindir?branch=main)
 [![PyPi Package](https://img.shields.io/pypi/v/autoadd-bindir?color=%2334D058&label=pypi%20package)](https://pypi.org/project/autoadd-bindir/)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/libranet/autoadd-bindir/blob/main/docs/license.md)
 
