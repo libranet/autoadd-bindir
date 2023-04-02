@@ -51,7 +51,8 @@ git-tmp-clone:
 .PHONY: publish-to-pypi  ## publish-to-pypi
 publish-to-pypi: git-tmp-clone
 	set -e ; \
-	LATEST_TAG=$$(git describe --tags --abbrev=0)
+	LATEST_TAG=$$(git describe --tags --abbrev=0) \
+	mkdir -p ${CLONE_DIR}-${LATEST_TAG}
 	cd ${CLONE_DIR}-${LATEST_TAG} && \
 	git fetch --tags && \
 	&& \

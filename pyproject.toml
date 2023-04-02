@@ -208,8 +208,8 @@ release-replacements = [
 ]
 
 
-[tool.poetry-version-plugin]
-source = "init"
+# [tool.poetry-version-plugin]
+# source = "init"
 
 [tool.pylint.format]
 max-line-length = 120
