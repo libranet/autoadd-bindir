@@ -1,7 +1,8 @@
 # See ../makefile
 
 GIT_CLONE_URL := $(shell git remote get-url --push origin)
-CLONE_DIR := 'var/tmp/cloned'
+LATEST_TAG := $(shell git fetch --tags && git describe --tags --abbrev=0)
+CLONE_DIR := 'var/cache/tags/${LATEST_TAG}'
 
 .PHONY: git-init  ## initialize  new git-repo
 git-init:
@@ -43,8 +44,9 @@ git-show-url:
 
 .PHONY: git-tmp-clone  ## clone repo to tmp-dir
 git-tmp-clone:
-	LATEST_TAG=$$(git describe --tags --abbrev=0)
-	cd ${CLONE_DIR}-${LATEST_TAG}
+# LATEST_TAG=$(git describe --tags --abbrev=0)
+	$(eval LATEST_TAG := $(git describe --tags --abbrev=0)) \
+	cd ${CLONE_DIR}-${LATEST_TAG} && \
 	@ git clone ${GIT_CLONE_URL} ${CLONE_DIR}
 
 
@@ -56,13 +58,13 @@ git-latest-tag:
 
 
 .PHONY: publish-to-pypi  ## publish-to-pypi
-publish-to-pypi: git-tmp-clone
-	set -e ; \
-	$(eval LATEST_TAG := $(git describe --tags --abbrev=0)) \
-	mkdir -p ${CLONE_DIR}-${LATEST_TAG}
-	cd ${CLONE_DIR}-${LATEST_TAG} && \
-	git fetch --tags && \
-	&& \
-	git checkout ${LATEST_TAG}
+publish-to-pypi:
+	@ echo -e "Creating directory ${CLONE_DIR}" && \
+	mkdir -p ${CLONE_DIR} && \
+	git clone ${GIT_CLONE_URL} ${CLONE_DIR}
+	cd ${CLONE_DIR} && \
+	echo -e "Checking out latest tags ${LATEST_TAG}" && \
+	git checkout ${LATEST_TAG} && \
+	echo -e "Building package v${LATEST_TAG}" && \
 	poetry build && \
 	poetry publish
