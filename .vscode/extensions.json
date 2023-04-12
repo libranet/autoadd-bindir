@@ -3,8 +3,10 @@
         "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-vscode.makefile-tools",
+        "njpwerner.autodocstring",
         "peakchen90.open-html-in-browser",
         "yzhang.markdown-all-in-one",
+        "visualstudioexptteam.vscodeintellicode",
         "zeshuaro.vscode-python-poetry"
     ]
 }
