@@ -127,6 +127,7 @@ flake8-rst-docstrings = ">=0.2.5"
 isort = ">=5.10.1"
 pre-commit = ">=2.14.1"
 pre-commit-hooks = ">=4.1.0"
+pydocstyle = ">=6.3.0"
 pylint = ">=2.12.2"
 ruff = ">=0.0.254"
 

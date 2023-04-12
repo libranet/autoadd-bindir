@@ -4,7 +4,11 @@
     "editor.detectIndentation": false,
     "editor.insertSpaces": true,
     "editor.snippetSuggestions": true,
-    "editor.quickSuggestions": true,
+    "editor.quickSuggestions": {
+        "comments": "on",
+        "strings": "on",
+        "other": "on"
+    },
     "editor.tabSize": 4,
     "files.associations": {
         ".env": "dotenv",
