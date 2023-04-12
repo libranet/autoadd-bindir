@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 
 
+## Unreleased (YYYY-MM-DD)
+
+- No changes yet.
+
+
 ## 1.0.5 (2023-04-12)
 
 - Remove ``autoadd_bindir.cancel``-function
@@ -30,8 +35,6 @@ All notable changes to this project will be documented in this file.
 - Refactored make-file.
 
 - Fix some typo's in docstrings.
-
-
 
 
 ## 1.0.1 (2023-03-19)
