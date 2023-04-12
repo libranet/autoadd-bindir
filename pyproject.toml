@@ -114,7 +114,7 @@ packages = [{ include = "autoadd_bindir", from = "src" }]
 
 [tool.poetry.dependencies]
 python = ">=3.8.0,<4.0"
-sitecustomize-entrypoints = ">=0.1.0"
+sitecustomize-entrypoints = ">=1.1.0"
 
 [tool.poetry.group.dev.dependencies]
 bandit = { extras = ["toml"], version = ">=1.7.4" }
