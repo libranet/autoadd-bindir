@@ -28,13 +28,13 @@ add the corresponding bin-directory to the ``PATH``.
 Install via pip:
 
 ```bash
-> bin/pip install autoadd_bindir
+> bin/pip install autoadd-bindir
 ```
 
 Or add to your poetry-based project:
 
 ```bash
-> poetry add autoadd_bindir
+> poetry add autoadd-bindir
 ```
 
 
