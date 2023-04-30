@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 
 
+## Unreleased (YYYY-MM-DD)
+
+- No changes yet.
+
+
 ## 1.0.6 (2023-04-30)
 
 - Remove range-pinning ``python = ">=3.8.0,<4.0"``, only specify bottom-range ``">=3.8.0"``
