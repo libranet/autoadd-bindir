@@ -106,8 +106,8 @@ description = "Automatically add bin-dir to PATH for every process in your virtu
 readme = "docs/readme.md"
 authors = ["Wouter Vanden Hove <wouter@libranet.eu>"]
 maintainers = ["Wouter Vanden Hove <wouter@libranet.eu>"]
-homepage = "https://github.com/libranet/autoadd_bindir"
-repository = "https://github.com/libranet/autoadd_bindir"
+homepage = "https://github.com/libranet/autoadd-bindir"
+repository = "https://github.com/libranet/autoadd-bindir"
 documentation = "https://autoadd-bindir.readthedocs.io"
 keywords = ["entrypoints", "sitecustomize"]
 classifiers = [
@@ -185,8 +185,9 @@ mypy = ">=0.9"
 
 
 [tool.poetry.urls]
-Issues = "https://github.com/libranet/autoadd_bindir/issues"
-Changelog = "https://github.com/libranet/autoadd_bindir/releases"
+Changelog = "https://github.com/libranet/autoadd-bindir/blob/main/docs/changes.md"
+Issues = "https://github.com/libranet/autoadd-bindir/issues"
+Releases = "https://github.com/libranet/autoadd-bindir/releases"
 
 
 [tool.poetry.plugins] # Optional super table
