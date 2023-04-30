@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased (YYYY-MM-DD)
 
-- No changes yet.
+- Remove range-pinning ``python = ">=3.8.0,<4.0"``, only specify bottom-range ``">=3.8.0"``
+
+- Remove rang-pinned dependencies ``tox``, ``nox``.
 
 
 ## 1.0.5 (2023-04-12)
