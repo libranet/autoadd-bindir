@@ -14,5 +14,5 @@ create-dirs:
 symlink-venv-dirs:
 	ln -sf ${VENV_DIR}/bin ;\
 	ln -sf ${VENV_DIR}/lib ;\
-	ln -sf ${VENV_DIR}/lib64 ;\
 	ln -sf ${VENV_DIR}/pyvenv.cfg
+	if [ -d ${VENV_DIR}/lib64 ]; then ln -sf .venv/lib64; fi
