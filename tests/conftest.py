@@ -1,4 +1,5 @@
 # pylint: disable=import-outside-toplevel
+# pylint: disable=missing-function-docstring
 """conftest.py - custom pytest-plugins.
 
 For more information about conftest.py, please see:

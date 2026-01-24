@@ -5,7 +5,7 @@
 
 def test_import_sitecustomize() -> None:
     try:
-        import sitecustomize  # noqa: F401
+        import sitecustomize  # noqa: F401 # pylint: disable=unused-import
     except ImportError:
         # package sitecustomize-entrypoints is not installed
         raise AssertionError from None
