@@ -15,7 +15,7 @@ pylint *args:
 
 ## run pylint on python-files in src/
 [group: 'pylint']
-pylint-src *args: 
+pylint-src *args:
     uv run pylint src/ {{args}}
 
 
