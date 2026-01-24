@@ -9,5 +9,5 @@ pyroma-which:
 
 # run pyroma
 [group: 'pyroma']
-pyroma *args: pyroma-which
-    - pyroma . {{args}}
+pyroma *args:
+    uv run pyroma . {{args}}
