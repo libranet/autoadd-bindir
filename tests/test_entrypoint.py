@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
 # pylint: disable=import-outside-toplevel
 # pylint: disable=missing-function-docstring
 """Testing of module autoadd_bindir."""
+
 import os
 import pathlib as pl
 

@@ -1,11 +1,23 @@
-"""autoadd_bindir.__init__."""
-__version__ = "1.0.8"
-__copyright__ = "Copyright 2023 Libranet."
-__license__ = "MIT License"
+"""autoadd_bindir."""
 
+import contextlib
 import os
 import pathlib as pl
 import sys
+
+from autoadd_bindir.about import (
+    authors as __author__,
+    license_ as __license__,
+    version as __version__,
+)
+
+__all__: list[str] = [
+    "__author__",
+    "__license__",
+    "__version__",
+    "entrypoint",
+    "get_bindir",
+]
 
 
 def entrypoint() -> None:
@@ -17,11 +29,9 @@ def entrypoint() -> None:
 
     paths = os.environ["PATH"].split(os.pathsep)
 
-    try:
-        # remove if already present somewhere in PATH
+    # remove if already present somewhere in PATH
+    with contextlib.suppress(ValueError):
         paths.remove(str(bin_dir))
-    except ValueError:
-        pass
 
     # prepend to PATH
     paths.insert(0, str(bin_dir))
@@ -30,5 +40,4 @@ def entrypoint() -> None:
 
 def get_bindir() -> pl.Path:
     """Return the bindir from the isolated virtual environment."""
-    bin_dir = pl.Path(sys.prefix) / "bin"
-    return bin_dir
+    return pl.Path(sys.prefix) / "bin"

@@ -1,153 +1,206 @@
 # Configuration-file for pre-commit
+#
 # References:
 #   - Official docs: https://pre-commit.com
 #   - for more hooks: https://pre-commit.com/hooks.html
+#   - https://github.com/pre-commit/pre-commit-hooks
 #
-# To avoid duplication, we try to configure the tools in pyproject.toml as much as possible.
+# Notes:
+#   - To avoid duplication, we try to configure the tools in pyproject.toml as much as possible.
+#   - The setting "language: system" is used to run commands that are already available on your system,
+#     and pre-commit does not need to create or manage an isolated environment.
+#   - Single-quote regular expressions.
 #
 # Usage:
-#   > pre-commit install
-#   > pre-commit install hooks  -f
-#   > pre-commit autoupdate
-#   > pre-commit run --all-files
+#   > bin/pre-commit install
+#   > bin/pre-commit install hooks -f
+#   > bin/pre-commit autoupdate
+#   > bin/pre-commit run --all-files
+
+
+default_install_hook_types: [commit-msg, pre-commit]
+
+default_stages: [pre-commit, manual]
+
+default_language_version:
+    python: python3.10
+
+fail_fast: true
 
 repos:
-  - repo: local
-    hooks:
-      # docs: https://black.readthedocs.io/en/stable/integrations/source_version_control.html
-      - id: black
-        name: Black
-        entry: black
-        args: ["--config=pyproject.toml"]
-        # "--check",  # don't write the files back, just return the status.
-        language: system # use executable found on path
-        require_serial: true
-        types: [python] # check only specific filetypes
 
-  # docs: https://flake8.pycqa.org/en/latest/user/using-hooks.html
+#   - repo: https://github.com/pre-commit/pygrep-hooks
+#     rev: v1.10.0
+#     hooks:
+#       - id: python-check-mock-methods
+#       - id: python-use-type-annotations
+#       - id: rst-backticks
+#       - id: rst-directive-colons
+#       - id: rst-inline-touching-normal
+#       - id: text-unicode-replacement-char
+
   - repo: local
     hooks:
-      - id: flake8
-        name: Flake8
-        entry: flake8
+
+      # The following are all pre-commit-hooks
+      # docs: https://github.com/pre-commit/pre-commit-hooks
+
+    #   - id: lower-case-only
+    #     name: check filenames are lower-case
+    #     entry: check forbidden filenames
+    #     language: fail
+    #     files: '[^a-z0-9._/-]'
+
+      - id: check-added-large-files
+        name: check added large files
+        entry: uv run check-added-large-files
         language: system
-        require_serial: true
-        types: [python]
 
-  # docs: https://pycqa.github.io/isort/docs/configuration/pre-commit.html
-  - repo: local
-    hooks:
-      - id: isort
-        name: Isort
-        entry: isort
-        args: ["--settings-path=pyproject.toml"] # "--filter-files"
+      - id: check-case-conflict
+        name: check case conflicts
+        description: Check for files with names that would conflict on a case-insensitive filesystem.
+        entry: uv run check-case-conflict
         language: system
-        require_serial: true
-        types: [python] # pyi? cython?
 
-  - repo: local
-    hooks:
-      - id: ruff
-        name: Ruff
-        entry: ruff
-        args: [--fix, --show-fixes]
+      - id: check-merge-conflict
+        name: check merge conflict
+        entry: uv run check-merge-conflict
+        args: [--assume-in-merge]
         language: system
-        types: [python]
 
-  - repo: local
-    hooks:
-      - id: mypy
-        name: Mypy
-        entry: mypy
+      - id: check-shebang-scripts-are-executable
+        name: check shebang scripts are executable
+        entry: uv run check-shebang-scripts-are-executable
         language: system
-        types: [python]
 
-  - repo: local
-    hooks:
-      - id: bandit
-        name: Bandit
-        entry: bandit
+      - id: check-json
+        name: check json
+        entry: uv run check-json
         language: system
-        types: [python]
-        # see https://github.com/PyCQA/bandit/issues/318
-        args: ["--configfile pyproject.toml", "--baseline etc/bandit-baseline.json"]
+        types: [json]
+        exclude: '^.vscode/.*\.json'
 
-  - repo: local
-    hooks:
-      - id: poetry-check
-        name: poetry-check
-        description: run poetry check to validate config
-        entry: poetry check
-        language: python
-        language_version: python3
-        pass_filenames: false
-        files: ^pyproject.toml$
-
-      # - id: poetry-lock
-      #   name: poetry-lock
-      #   description: run poetry lock to update lock file
-      #   entry: poetry lock
-      #   language: python
-      #   language_version: python3
-      #   pass_filenames: false
-
-  # The following are all pre-commit-hooks
-  # docs: https://github.com/pre-commit/pre-commit-hooks
-
-  - repo: local
-    hooks:
-      - id: debug-statements
-        name: Check debug statements
-        entry: debug-statement-hook
-        language: system
-        types: [python]
-
-  - repo: local
-    hooks:
       - id: check-toml
-        name: Check Toml
-        entry: check-toml
+        name: check toml syntax
+        entry: uv run check-toml
         language: system
         types: [toml]
 
-  - repo: local
-    hooks:
+      - id: check-xml
+        name: check xml syntax
+        entry: uv run check-xml
+        language: system
+        types: [xml]
+
       - id: check-yaml
-        name: Check Yaml
+        name: check yaml syntax
         entry: check-yaml
         language: system
         types: [yaml]
 
-  - repo: local
-    hooks:
-      - id: end-of-file-fixer
-        name: Fix End of Files
-        entry: end-of-file-fixer
+      - id: check-symlinks
+        name: check symlinks
+        entry: uv run check-symlinks
         language: system
-        stages: [commit, push, manual]
-        types: [python] # text too broad?
 
-  - repo: local
-    hooks:
-      - id: fix-encoding-pragma
-        name: Fix encoding pragma
-        entry: fix-encoding-pragma --remove
+      - id: destroyed-symlinks
+        name: destroyed symlinks
+        entry: uv run destroyed-symlinks
+        language: system
+
+      - id: detect-private-key
+        name: detect private key
+        entry: uv run detect-private-key
+        language: system
+
+      - id: fix-byte-order-marker
+        name: fix byte order marker
+        entry: uv run fix-byte-order-marker
+        language: system
+
+      - id: mixed-line-ending
+        name: fix mixed line ending (CLRF/LF)
+        entry: uv run mixed-line-ending
+        language: system
+        types: [text]
+
+      - id: trailing-whitespace
+        name: fix trailing whitespace (EOL)
+        entry: uv run trailing-whitespace-fixer
+        language: system
+        types: [text]
+
+      # Below python-specific checks
+
+      - id: check-ast
+        name: check ast
+        entry: uv run check-ast
         language: system
         types: [python]
 
-  - repo: local
-    hooks:
-      - id: mixed-line-ending
-        name: Fix mixed line-endings
-        entry: mixed-line-ending
+      - id: check-builtin-literals
+        name: check builtin literals
+        entry: uv run check-builtin-literals
         language: system
-        types: [text]
+        types: [python]
 
-  - repo: local
-    hooks:
-      - id: trailing-whitespace
-        name: Trim Trailing Whitespace # fix-trailing-whitespace
-        entry: trailing-whitespace-fixer
+      - id: check-docstring-first
+        name: check docstring first
+        entry: uv run check-docstring-first
         language: system
-        stages: [commit, push, manual]
-        types: [text]
+        types: [python]
+
+      - id: debug-statements
+        name: check debug statements
+        entry: uv run debug-statement-hook
+        language: system
+        types: [python]
+
+      - id: end-of-file-fixer
+        name: fix end of files (EOF)
+        entry: uv run end-of-file-fixer
+        language: system
+        types: [python]
+
+      - id: name-tests-test
+        name: pytests are prefixed tests_*.py
+        entry: uv run name-tests-test
+        args: [--pytest-test-first]
+        language: system
+        types: [python]
+        files: '^tests/.*\.py$'
+        exclude: '^tests/_helpers/.*\.py$'
+
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        types: [python]
+
+      - id: ruff-check
+        name: ruff check
+        entry: uv run ruff check
+        args: [--fix]
+        language: system
+        types: [python]
+
+      - id: ty-check
+        name: ty check
+        entry: uv run ty check src/ tests/
+        language: system
+        types: [python]
+        pass_filenames: false
+
+      - id: mdformat
+        name: mdformat
+        description: format markdown files
+        entry: uv run mdformat
+        language: system
+        types: [markdown]
+
+      - id: uv-lock-check
+        name: uv lock check
+        description: check uv.lock is in sync
+        entry: uv lock --check
+        language: system
+        pass_filenames: false

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # pylint: disable=import-outside-toplevel
 # pylint: disable=missing-function-docstring
 """Testing of module sitecustomize."""
@@ -9,7 +8,7 @@ def test_import_sitecustomize() -> None:
         import sitecustomize  # noqa: F401
     except ImportError:
         # package sitecustomize-entrypoints is not installed
-        assert False
+        raise AssertionError from None
 
 
 def test_entrypoint_registration() -> None:

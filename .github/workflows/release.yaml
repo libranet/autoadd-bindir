@@ -5,56 +5,62 @@
 name: PyPI Release
 
 env:
-  POETRY_VERSION: "1.4.0"
+    # Pin uv version for reproducible builds
+    # https://github.com/astral-sh/uv/releases
+    UV_VERSION: "0.9.26"  # released on 2026-01-15
 
 on:
-  push:
-    tags:
-      # - "v*" # only run on tags that start with 'v'
-      - "[0-9]+.[0-9]+.[0-9]+" # matches tags in the format X.Y.Z
+    push:
+        tags:
+            # - "v*" # only run on tags that start with 'v'
+            - "[0-9]+.[0-9]+.[0-9]+" # matches tags in the format X.Y.Z
+
+permissions:
+    contents: read
 
 jobs:
-  build-and-release:
-    runs-on: ubuntu-latest
-    # permissions:
-    #   id-token: write  # IMPORTANT: this permission is mandatory for OIDC publishing
-    steps:
-      # https://github.com/actions/checkout
-      - name: Checkout code
-        uses: actions/checkout@v6
+    build-and-release:
+        runs-on: ubuntu-latest
+        steps:
+            # https://github.com/actions/checkout
+            - name: Checkout code
+              uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  # v6.0.1
+              with:
+                  persist-credentials: false
 
-      # https://github.com/actions/setup-python
-      - name: Setup Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
+            # repo: https://github.com/astral-sh/setup-uv
+            # releases: https://github.com/astral-sh/setup-uv/tags
+            # docs: https://docs.astral.sh/uv/guides/integration/github
+            - name: Install pinned version of uv
+              uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b  # v7.1.6
+              with:
+                  python-version: "3.11"
+                  version: ${{ env.UV_VERSION }}
+                  enable-cache: true
+                  cache-dependency-glob: "uv.lock"
 
-      - name: Which Python3
-        run: which python
+            - name: Which Python
+              run: which python
 
-      - name: Install Poetry
-        # run: curl -sSL https://install.python-poetry.org | python3 - --version $POETRY_VERSION
-        run: pip install poetry==${{ env.POETRY_VERSION }}
+            - name: Install dependencies
+              run: uv sync --group packaging
 
-      - name: Install dependencies
-        run: poetry install --no-root
+            - name: Build package
+              run: uv build
 
-      - name: Build package
-        run: poetry build
+            # - name: Publish distribution to Test PyPI
+            #   uses: pypa/gh-action-pypi-publish@release/v1
+            #   with:
+            #     password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+            #     repository-url: https://test.pypi.org/legacy/
 
-      # - name: Publish distribution to Test PyPI
-      #   uses: pypa/gh-action-pypi-publish@release/v1
-      #   with:
-      #     password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-      #     repository-url: https://test.pypi.org/legacy/
-
-      # https://github.com/pypa/gh-action-pypi-publish
-      # https://github.com/marketplace/actions/pypi-publish
-      # https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
-      - name: Publish package to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.13.0
-        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_API_TOKEN }}
-          repository-url: https://test.pypi.org/legacy/
+            # https://github.com/pypa/gh-action-pypi-publish
+            # https://github.com/marketplace/actions/pypi-publish
+            # https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
+            - name: Publish package to PyPI
+              uses: pypa/gh-action-pypi-publish@v1.13.0
+              if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
+              with:
+                  user: __token__
+                  password: ${{ secrets.PYPI_API_TOKEN }}
+                  repository-url: https://test.pypi.org/legacy/

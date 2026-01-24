@@ -16,11 +16,11 @@
 #
 #   - If there is a / at the end of the pattern then the pattern will only match directories,
 #     otherwise the pattern can match both files and directories.
-
+#
 #   - Symlinks are always files, even if they point to a dir. So never put a / at the end.
 
-# archived files
-/_archive/
+# exclude claude for now
+.claude
 
 # dev-symlinks to .venv to make bin/python work
 /bin
@@ -29,16 +29,18 @@
 /pyvenv.cfg
 
 # exclude actual virtual-environment
-/.venv/
+/.venv*
 
-# distribution / packaging
+# default build directory
 /dist/
 
 # .env can contain secrets
-/.env
-
-# exclude toplevel var-dir
-/var/
+.env*
+# but include .env.template
+!.env.template
 
 # excluded generated python-files Byte-compiled / optimized / DLL files
 __pycache__/
+
+# exclude toplevel var-dir
+/var/

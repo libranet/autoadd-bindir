@@ -55,7 +55,7 @@
     "python.analysis.typeCheckingMode": "off",
     "[python]": {
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+            "source.organizeImports": "explicit"
         },
         "editor.snippetSuggestions": "bottom",
         "editor.suggest.filterGraceful": true,

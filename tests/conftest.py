@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # pylint: disable=import-outside-toplevel
 """conftest.py - custom pytest-plugins.
 
@@ -49,6 +48,7 @@ Usage:
   > pytest --cov="autoadd_bindir"  --cov-report=term  --cov-report=html
 
 """
+
 import importlib
 import pathlib as pl
 import sys
@@ -56,9 +56,11 @@ import sys
 import pytest
 
 import autoadd_bindir
+import autoadd_bindir.about
 
 # reload the module to fix coverage report
 importlib.reload(autoadd_bindir)
+importlib.reload(autoadd_bindir.about)
 
 
 @pytest.fixture

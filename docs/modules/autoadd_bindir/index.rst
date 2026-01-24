@@ -1,47 +1,53 @@
-:py:mod:`autoadd_bindir`
-========================
+autoadd_bindir
+==============
 
 .. py:module:: autoadd_bindir
 
 .. autoapi-nested-parse::
 
-   autoadd_bindir.__init__.
+   autoadd_bindir
 
 
 
-Package Contents
-----------------
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /modules/autoadd_bindir/about/index
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   autoadd_bindir.__author__
+   autoadd_bindir.__license__
+   autoadd_bindir.__version__
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
    autoadd_bindir.entrypoint
    autoadd_bindir.get_bindir
-   autoadd_bindir.cancel
 
 
+Package Contents
+----------------
 
-Attributes
-~~~~~~~~~~
+.. py:data:: __author__
+   :type:  str | list[str]
 
-.. autoapisummary::
-
-   autoadd_bindir.__version__
-   autoadd_bindir.__copyright__
-
+.. py:data:: __license__
+   :type:  str | list[str]
 
 .. py:data:: __version__
-   :value: '1.0.2a0'
-
-   
-
-.. py:data:: __copyright__
-   :value: 'Copyright 2023 Libranet - MIT License.'
-
-   
+   :type:  str
 
 .. py:function:: entrypoint()
 
@@ -50,31 +56,6 @@ Attributes
 
 .. py:function:: get_bindir()
 
-   Return the bindit form the isolated virtual environment.
-
-
-.. py:function:: cancel()
-
-   No-op function that can be used the cancel a registered entrypoint.
-
-   Imagine you have multiple sitecustomize-entrypoints. If these entrypoints
-   are registered via third-party packages, you cannot control the order of execution.
-
-   Now suppose some of these entrypoints need an environment-variable that first need to be set
-   by ``autoadd_bindir`` needs to be executed before the others
-
-   entrypoint 1:  foo.needs_envvar:bar
-   entrypoint 2:  autoadd_bindir.entrypoint:autoadd_bindir
-
-   in your project's pyproject.toml:
-
-   [tool.poetry.plugins."sitecustomize"]
-
-   # cancel the first registration using the original name
-   autoadd_bindir = "autoadd_bindir.entrypoint:cancel"
-
-   # re-register the same function under different name
-   zz_autoadd_bindir = "autoadd_bindir.entrypoint:autoadd_bindir"
-
+   Return the bindir from the isolated virtual environment.
 
 

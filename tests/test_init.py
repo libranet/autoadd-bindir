@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
 # pylint: disable=import-outside-toplevel
 # pylint: disable=missing-function-docstring
 """Testing of module autoadd_bindir.__init__."""
+
 import packaging.version
 
 
@@ -13,7 +13,7 @@ def test_version() -> None:
 
 
 def test_copyright() -> None:
-    from autoadd_bindir import __copyright__
+    from autoadd_bindir import __license__
 
-    assert isinstance(__copyright__, str)
-    assert "Copyright" in __copyright__
+    assert isinstance(__license__, str)
+    assert "Copyright" in __license__
