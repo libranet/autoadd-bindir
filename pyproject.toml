@@ -46,7 +46,10 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: PyPy",
     "Typing :: Typed",
 ]
-dependencies = ["python-dotenv>=1.0.0", "sitecustomize-entrypoints>=1.1.0"]
+dependencies = [
+    "python-dotenv>=1.0.0",
+    "sitecustomize-entrypoints>=1.1.0",
+]
 
 [dependency-groups]
 dev = ["toml-cli >=0.7.0"]
@@ -62,11 +65,25 @@ docs = [
     "sphinx-autoapi>=3.3",
     "sphinx-rtd-theme>=3.0",
 ]
-ipython = ["ipdb>=0.13", "ipython>=8.12", "rich>=13.9"]
-linting = ["pylint>=3.2", "ruff>=0.8"]
+ipython = [
+    "ipdb>=0.13",
+    "ipython>=8.12",
+    "rich>=13.9",
+]
+linting = [
+    "pylint>=3.2",
+    "ruff>=0.8",
+]
 packaging = ["pyroma>=4.2"]
-pre-commit = ["pre-commit>=3.5", "pre-commit-hooks>=5.0", "prek>=0.2"]
-security = ["bandit[toml]>=1.7", "safety>=2.3"]
+pre-commit = [
+    "pre-commit>=3.5",
+    "pre-commit-hooks>=5.0",
+    "prek>=0.2",
+]
+security = [
+    "bandit[toml]>=1.7",
+    "safety>=3.5",
+]
 testing = [
     "pytest>=8.3",
     "pytest-clarity>=1.0",
@@ -74,7 +91,10 @@ testing = [
     "pytest-dotenv>=0.5",
     "pytest-xdist>=3.6",
 ]
-typing = ["mypy[reports]>=1.1", "ty>=0.0"]
+typing = [
+    "mypy[reports]>=1.1",
+    "ty>=0.0",
+]
 
 # https://packaging.python.org/en/latest/guides/creating-and-discovering-plugins/
 # https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#advanced-plugins
@@ -228,10 +248,11 @@ include = ["src", "tests"]
 
 [tool.uv]
 # Settings reference: https://docs.astral.sh/uv/reference/settings/
+default-groups = "all"
 keyring-provider = "subprocess"
 managed = true
 package = true
-default-groups = "all"
+# override-dependencies = ["packaging>=24.0"]
 
 [[tool.uv.index]]
 name = "testpypi"
