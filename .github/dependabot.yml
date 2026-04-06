@@ -26,7 +26,7 @@ updates:
       labels:
           - "dependencies"
           - "python"
-          - "uv"
+          - "uv.lock"
       open-pull-requests-limit: 9
       schedule:
           interval: "monthly"
