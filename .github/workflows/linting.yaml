@@ -93,7 +93,7 @@ jobs:
         # releases: https://github.com/astral-sh/setup-uv/tags
         # docs: https://docs.astral.sh/uv/guides/integration/github
         - name: Install pinned version of uv
-          uses: astral-sh/setup-uv@cec208311dfd045dd5311c1add060b2062131d57  # v8.0.0 released on 29-03-2026
+          uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b  # v8.0.0 released on 29-03-2026
           with:
               python-version: ${{ matrix.python-version }}
               version: ${{ env.UV_VERSION }}
