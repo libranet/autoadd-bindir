@@ -13,18 +13,21 @@ PACKAGE: str = __package__ or ""
 
 
 try:
-    msg = importlib.metadata.metadata(PACKAGE)
-    pkginfo: dict[str, str | list[str]] = msg.json  # type: ignore[attr-defined]
+    _msg = importlib.metadata.metadata(PACKAGE)
+    # Materialise a plain ``dict`` so downstream ``.get(...)`` calls are typed
+    # unambiguously on every supported Python: ``PackageMetadata`` only guarantees
+    # ``__iter__`` (over keys) and ``__getitem__`` across versions.
+    pkginfo: dict[str, str] = {key: _msg[key] for key in _msg}
 except ValueError:  # pragma: no cover
-    # A distribution name is required. __package__ is None
+    # A distribution name is required. __package__ is None.
     pkginfo = {}
 except importlib.metadata.PackageNotFoundError:  # pragma: no cover
     # fallback if this package is not properly installed
     pkginfo = {}
 
 
-authors: str | list[str] = pkginfo.get("author_email", "unknown")
+authors: str = pkginfo.get("Author-email", "unknown")
 
-license_: str | list[str] = pkginfo.get("license_expression") or pkginfo.get("license", "unknown") or "unknown"
+license_: str = pkginfo.get("License-Expression") or pkginfo.get("License", "unknown") or "unknown"
 
-version: str = pkginfo.get("version", "unknown")  # type: ignore[assignment]
+version: str = pkginfo.get("Version", "unknown")
